@@ -1,0 +1,7 @@
+[Unit]
+Description=beep On %I Failure
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/conf.d/sysbeep
+ExecStart=/usr/bin/beep ${SYSBEEP_TUNE_SERIVCE_FAILURE}

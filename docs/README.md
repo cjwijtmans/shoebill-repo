@@ -16,3 +16,7 @@
 ```bash
 emerge --sync
 ```
+
+## License
+
+[MIT](LICENSE)

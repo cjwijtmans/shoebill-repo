@@ -1,0 +1,15 @@
+[Unit]
+Description=beep on sleep/resume
+Before=sleep.target
+StopWhenUnneeded=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/conf.d/sysbeep
+#ExecStop=-/path/to/your/script.sh
+ExecStart=/usr/bin/beep ${SYSBEEP_TUNE_SLEEP}
+ExecStop=/usr/bin/beep ${SYSBEEP_TUNE_RESUME}
+
+[Install]
+WantedBy=sleep.target

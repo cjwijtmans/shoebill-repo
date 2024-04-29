@@ -1,0 +1,13 @@
+[Unit]
+Description=beep on boot/shutdown
+After=basic.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+EnvironmentFile=/etc/conf.d/sysbeep
+ExecStart=/usr/bin/beep ${SYSBEEP_TUNE_START}
+ExecStop=/usr/bin/beep ${SYSBEEP_TUNE_STOP}
+
+[Install]
+WantedBy=multi-user.target
